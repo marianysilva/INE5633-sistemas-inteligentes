@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CONCEITOS BÁSICOS</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7426c2ed-af05-4b06-b736-46d7190f1bf7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📚</span></div><h1 class="page-title">CONCEITOS BÁSICOS</h1></header><div class="page-body"><h1 id="cb9d5b83-737d-4bb0-ae99-6bca71009804" class="">O que é ser inteligente?</h1><ul id="9be007f5-3807-48d3-8a1b-942166b3176b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange">Resolver Problemas</mark></li></ul><ul id="3aaf54ec-de50-451b-8bda-0965135a23c0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange">Tomada de decisão</mark></li></ul><ul id="28038f36-0cac-4c14-8511-913510b43c0f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange">Raciocínio rápido</mark></li></ul><ul id="c26ecf38-8bdf-4f57-b0cd-d6559c4b73bd" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-orange">Conhecimento</mark></li></ul><p id="84aa21df-5f4e-4e48-929a-c4d1f7147b6c" class="">Inteligencia é um conceito subjetivo, cada um atribui as características que melhor encaixam no seu contexto</p><ul id="4dfa2fa0-2269-414e-82c3-dcf9905cc9bb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-teal">Música e artes:</mark><ul id="6d212de9-d7d8-4d9d-8acc-524388b5342d" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Criatividade</mark><ul id="03a9ac14-b8ab-4a92-bd6b-a6e704f6679a" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-teal">Analogia</mark></li></ul><ul id="a2de97e4-9399-43b3-96c2-b32a4ed5a907" class="bulleted-list"><li style="list-style-type:square"><mark class="highlight-teal">Associativa</mark></li></ul></li></ul><ul id="c70d6f22-cf43-460c-afbe-7a64a66e666a" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-teal">Sensibilidade</mark></li></ul></li></ul><ul id="d702af16-be18-4d2c-af15-e4b65777b65a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-pink">Crianças</mark><ul id="8f11a5d2-e077-4b1f-ad7e-76567c9d42ae" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-pink">Aprendizagem</mark></li></ul></li></ul><ul id="d2249665-9800-478a-b505-6c462c8c8dba" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-brown">Biologia</mark><ul id="2db0dc37-ae3d-4cb8-a374-e0742169ef1b" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-brown">Evolutiva</mark></li></ul><ul id="1ddbfab9-eef6-4d3a-8752-88bec016067d" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-brown">Comportamento</mark></li></ul><ul id="8da55c96-9dea-447d-b46e-7c7ca2ef5d1c" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-brown">Cooperação</mark></li></ul></li></ul><figure id="b801475b-332b-4fd4-b2c0-8c6ac5b5d889" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled.png"><img style="width:432px" src="CONCEITOS%20BA%CC%81SICOS/Untitled.png"/></a></figure><p id="1486d7bb-ab13-4089-a28d-325e2e73e1a5" class=""><strong>IA FORTE - Entendimento / Teorias</strong></p><p id="a2657aff-544f-4c16-81d5-bfc1b1bd07ae" class="">Algo para pesquisar e entender: Como raciocinamos?</p><p id="ffb786db-3daf-4ad4-8e75-360074424f2f" class="">
+</p><p id="a9784412-955d-403e-a9a8-d42d47390592" class=""><strong>IA FRACA - Simular / Resolver / Aplicar</strong></p><p id="6ed24f62-5a83-46b8-ac8a-64f4127d5211" class="">Fazer com que um computador realize uma tarefa que exige inteligencia</p><h1 id="1f99fd2b-d093-41bb-b000-d9e623cb07fa" class="">Formas de Implementação</h1><h2 id="bea3b3d6-842e-45ac-8e6d-78bd90d3d4ef" class="">SIMBÓLICO</h2><p id="18416ac2-0e4e-43d8-8c93-9469f62c0012" class=""><mark class="highlight-gray">Formada por símbolos. Computador processa símbolos</mark></p><ul id="de8076f2-28b3-401e-a094-18476b548f89" class="bulleted-list"><li style="list-style-type:disc">Programas de computador:
+if, for, function, etc → 0s e 1s</li></ul><ul id="a14acfaa-9c75-4357-9959-e882d7863a4b" class="bulleted-list"><li style="list-style-type:disc">Lógica:
+predicados, proposicional, etc</li></ul><ul id="3db01b4e-aa52-420b-9fc5-be52c33ae66b" class="bulleted-list"><li style="list-style-type:disc">Raciocínio:
+dedutivo, indutivo</li></ul><h2 id="447aa4bd-3c64-43a6-8727-cb6a668d6239" class="">CONEXIONISTA</h2><p id="9d58d670-bf86-40ef-bf20-500f7b237324" class=""><mark class="highlight-gray">Formada por Neurônios. Ser humano tem conexões neurais que transmitem impulsos elétricos (energia)</mark></p><table id="057bbcb0-f879-4ac8-b09c-0bd606de3b10" class="simple-table"><thead class="simple-table-header"><tr id="a738a0b9-8a33-4e24-b40a-271800262556"><th id="&gt;cbH" class="simple-table-header-color simple-table-header" style="width:187px"></th><th id="c}xO" class="simple-table-header-color simple-table-header" style="width:241px">FORTE</th><th id="luWz" class="simple-table-header-color simple-table-header" style="width:251px">FRACA</th></tr></thead><tbody><tr id="925d66e8-c6b4-418a-b41b-8ecdde3cb1e7"><td id="&gt;cbH" class="" style="width:187px">SIMBÓLICA</td><td id="c}xO" class="" style="width:241px">Representação de conhecimentos:
+- Agentes
+- Ontologias
+— Web Semântica
+— OWL</td><td id="luWz" class="" style="width:251px">Resolução de xadrez
+Resolução de jogo da velha</td></tr><tr id="ee38d1fb-898b-41d8-ac07-a933f1036d9c"><td id="&gt;cbH" class="" style="width:187px">CONEXIONISTA</td><td id="c}xO" class="" style="width:241px">Interpretação de exames de saúde
+Tomada de decisão pra engajamento no EaD
+Interpretação de texto
+processamento de linguagem natural</td><td id="luWz" class="" style="width:251px">Classificação de imagens
+Assistentes pessoais (Siri)
+Tomada de decisão pra engajamento no EaD</td></tr></tbody></table><h2 id="f5e365e3-40fe-48eb-8cbf-fafce82677e0" class="">Teste de Turing</h2><p id="3d0d66c7-ca16-458d-996a-81485fefc4d7" class="">Criar um Chat BOT em um computador que entenda coisas relacionadas senso comum e colocar um ser humano para conversar no CHAT com o computador. Se um JUIZ (outro ser humano) não souber diferenciar quem é o ser humano quem é o PC então o Computador é inteligente. </p><h2 id="44b23668-180d-4051-b92f-cf75b3b9c424" class="">Quarto Chinês</h2><p id="67c1a3f2-e405-4d78-b462-4a14a764cf71" class="">Contrário a Inteligencia artificial, buscou provar que isso não existe. Imaginamos que exista um cidadão que fala Chines e ele envia uma mensagem para um desconhecido que tem um dicionário de símbolos. Com a mensagem e esse dicionario de símbolos o desconhecido, que não sabe Chinês, escolhe aleatoriamente símbolos e responde. O cidadão Chines olha a mensagem e entende: ok, o desconhecido sabe Chinês.</p><p id="602916cb-0aa3-424e-ba91-d01f71b6057c" class="">O Computador é assim: um conjunto de funções que recebem inputs e devolvem uma resposta, por isso eles não tem inteligência, eles apenas manipulam símbolos.</p><ul id="e09f4368-53ea-4ca6-8993-8be510f5198b" class="bulleted-list"><li style="list-style-type:disc">Será que algum dia teremos de fato uma IA Forte implementada?</li></ul><h1 id="a2656c16-04bc-447a-98af-3fec392dc428" class="">Métodos de Busca</h1><div id="f74470ce-865c-49de-9d24-1278a7d0cde4" class="column-list"><div id="8f4d8144-0c96-4174-b2e1-8d071a60e222" style="width:50%" class="column"><p id="590d5f6b-6308-4b0f-90ba-fcb16f825832" class="">Qual a relação de métodos de busca com<strong> IA FORTE -</strong> <strong>ENTENDIMENTO?</strong></p><p id="d825d7a7-35af-408b-8169-694f91a9c85f" class="">Estudo de General Problem Solvers (Resolvedor Genético de Problemas) usando métodos de busca, tendo uma representação de um problema, uma solução.</p><p id="c6e51af7-a187-460e-8b05-968f5b8fe027" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="82d210b3-2280-450f-8856-82c609f39d97"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Buscar uma solução para um problema</div></figure><p id="4f3dca4b-759f-4fd8-b63f-f1cacf61901c" class="">Qual a relação de métodos de busca com<strong> IA SIMBÓLICA?</strong></p><p id="94966ec3-f19d-40e1-a856-0408b9783a95" class="">Construir uma base de conhecimento por meio de código e usar essa <mark class="highlight-blue">base de conhecimento</mark> para <mark class="highlight-red">responder / resolver problemas</mark></p><figure id="4462b624-9aec-42aa-855c-8fa8647bb204" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled%201.png"><img style="width:648px" src="CONCEITOS%20BA%CC%81SICOS/Untitled%201.png"/></a></figure><p id="ce9c4190-1cd3-467d-a495-029199d1d4a6" class="">Esses símbolos definem algoritmos.</p><p id="7724535d-5a68-4f9d-bc3c-94224f28ef1c" class="">
+</p><p id="4be5b096-22e5-4da8-be6b-b534659b0d13" class="">
+</p><p id="0edcc1d4-9b29-44b1-91e4-666ceb8284ad" class="">
+</p><p id="4e555228-ee67-44fb-83c9-1490b9e671de" class="">Por isso métodos de busca, que usam algoritmos, são muito usados na <strong>IA SIMBÓLICA</strong></p></div><div id="988e11d0-17c2-4060-9765-ea6d35de080d" style="width:50%" class="column"><p id="cefdce48-7385-4edc-a887-719abe085c44" class="">Qual a relação de métodos de busca com<strong> IA FRACA - SIMULAÇÃO?</strong></p><p id="4644d64d-2527-470f-82f8-9bd482042186" class="">Implementação de sistemas usando métodos de busca para solucionar problemas reais<div class="indented"><ul id="b47be109-ef0f-45da-8451-9fcfe2dab3e2" class="bulleted-list"><li style="list-style-type:disc">Deep Blue → Inteligencia pra jogar xadrez (super computador)</li></ul><ul id="75b3818a-302e-4420-ba84-226a228de7e7" class="bulleted-list"><li style="list-style-type:disc">Deep Junior → Inteligencia pra jogar xadrez  (cluster)</li></ul><ul id="bc941882-6f9a-4dbf-987d-78d1b0f0229c" class="bulleted-list"><li style="list-style-type:disc">Watson (Sass)</li></ul></div></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="780c4854-eef5-44e8-a329-811111937923"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Simular um comportamento inteligente</div></figure><p id="0be8196a-f13f-448b-ba2e-69ce8c30eec7" class="">A partir da representação de um problema, vamos buscar uma solução:</p><p id="6d7116e7-4576-4bb0-8524-f44420e099d9" class="">Qual a relação de métodos de busca com<strong> IA CONEXIONISTA?</strong></p><p id="15ddf3ee-4127-4de0-ab3f-6479acaab696" class="">Construir uma base de conhecimento por meio de uma rede neural (conexão de neurônios) e usar essa <mark class="highlight-blue">base de conhecimento</mark> para <mark class="highlight-orange">responder / resolver problemas</mark></p><figure id="546f655e-07f2-4f71-88e3-d1b2b0d4ac50" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled%202.png"><img style="width:1360px" src="CONCEITOS%20BA%CC%81SICOS/Untitled%202.png"/></a></figure><p id="35f6abd6-4e6c-43a2-909d-be71f8c0f521" class="">Não é possível entender o que essa rede faz apenas olhando a representação dela (como se estivéssemos olhando uma tomografia pra entender como raciocinamos para resolver determinado problema)</p><p id="4193f6aa-a26d-475b-95b8-13ab8096f7cb" class="">
+</p><p id="3a40b893-e172-4df1-b007-ad987cf5d268" class="">Por isso métodos de busca, que usam algoritmos, se distanciam bastante da <strong>IA CONEXIONISTA </strong></p><p id="346a91c9-ab12-4481-bc0d-19871e4301b6" class="">
+</p></div></div><p id="cdbdfb34-e97e-40c4-9bfa-c422d78b5280" class="">
+</p><div id="368b850d-0155-44fa-8647-53ec442b2648" class="column-list"><div id="98a9f2c5-381c-4317-af08-a93c0ba71add" style="width:33.333333333333336%" class="column"><figure id="3a37e06d-0746-429f-9269-592eb7f89819" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled%203.png"><img style="width:144px" src="CONCEITOS%20BA%CC%81SICOS/Untitled%203.png"/></a></figure></div><div id="c2314bff-e5c0-4bb9-9a45-cfdb2b8204f1" style="width:33.333333333333336%" class="column"><p id="52b4b05d-9625-4c09-a6aa-301a88c1e9ea" class=""> →</p></div><div id="bda09c88-df65-465a-8729-6d06e189e1af" style="width:33.33333333333333%" class="column"><figure id="2934f589-aeba-4509-8eec-c6fc472d00ba" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled%204.png"><img style="width:144px" src="CONCEITOS%20BA%CC%81SICOS/Untitled%204.png"/></a></figure></div></div><p id="8f6bb6d8-625c-4662-aead-7c46f5f450ac" class="">Qual é o conjunto de ações que faz com que a gente consiga sair de um estado para o outro?</p><hr id="d21a60f9-c033-47ca-b662-bf6f205923fe"/><p id="7f9c1d8e-61be-4a68-9e5e-fa9e48277d60" class="">Dado um jogo da velha, quais são as possibilidades de jogo?</p><figure id="327d58a4-9fca-465e-82b9-7f6204a2419b" class="image"><a href="CONCEITOS%20BA%CC%81SICOS/Untitled%205.png"><img style="width:240px" src="CONCEITOS%20BA%CC%81SICOS/Untitled%205.png"/></a></figure><p id="88b3beaf-ce63-430b-9f20-422fa1c8aeab" class="">9! = 362880 Possibilidades</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="742fd3bc-31d0-4245-a4f3-8dbccd18f1ec"><div style="font-size:1.5em"><span class="icon">🔥</span></div><div style="width:100%"><strong>Métodos de busca</strong> nos ajudam a <strong>MONTAR </strong>o grafos de possibilidades <strong>E PERCORRER</strong> o melhor <strong>caminho (sequencia de ações)</strong> para a vitória</div></figure><p id="073ff8d6-d267-4abe-bfc3-d2c0acd39f36" class="">
+</p><p id="ec3f4491-7f2b-4489-8d6c-08315372b1f2" class="">Grafo:</p><ul id="7cfad39b-7c98-4f47-93a9-947243b46655" class="bulleted-list"><li style="list-style-type:disc">Nodo = Possibilidade = Estado =Configuração</li></ul><ul id="951bf167-e449-4e15-aba9-30f2427e9a33" class="bulleted-list"><li style="list-style-type:disc">Aresta = Ações</li></ul></div></article></body></html>
