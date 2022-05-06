@@ -1,4 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>BUSCA ADVERSÁRIA</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Anotações
+
+</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -666,4 +668,41 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="f06d9113-8311-43a6-a8a2-2a04b2fac56e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📚</span></div><h1 class="page-title">BUSCA ADVERSÁRIA</h1></header><div class="page-body"><h2 id="3695efdd-10a5-4faa-9ba9-fed0ad9ff4bd" class="">Busca da melhor ação para determinado problema dado um nodo de entrada. Se estivermos analisando um jogo de xadrez, jogo da velha, ou algum problema que precisamos saber qual a melhor ação a ser tomada, dado um estado atual podemos utilizar a Busca adversária.</h2><p id="b81f350f-643d-4b12-a405-43d53a898531" class="">Para achar a melhor ação, precisamos montar as possibilidades e comprar os resultados, escolhendo a melhor.</p><p id="7109e5ca-b95e-480b-8987-d6599ec54318" class="">Uma estratégia é usar o algoritmo Min Max</p><p id="58161862-f1cc-4e3f-8827-01c01ce9ba17" class="">Imaginemos que estamos jogando jogo da velha. Nesse caso vamos utilizar o algoritmo de Busca adversária usando Min Max. O Humano vai sempre buscar o menor resultado, o PC vai sempre buscar o maior resultado, uma vez que a arvore está montada. Valores menor do que 1, significam que o algoritmo perdeu, valores 0 significam empate e valores acima de 1 significam que o algoritmo venceu.</p><p id="2a918063-d817-4339-a94d-859175fc9757" class="">Cada possibilidade (nodo) de jogada vai ter uma pontuação atribuída, calculada por uma função de utilidade. Com base nesse valor atribuído escolheremos a melhor jogada.</p><p id="e95f8011-c595-4220-a6b1-5f5faaf53321" class="">No exemplo abaixo, o algoritmo vai retornar a jogada com pontuação 10, pois ela é a melhor entre -1, 10 e 0.</p><figure id="fbd91580-eb3b-489e-a6e7-ef5c88c95a51" class="image"><a href="BUSCA%20ADVERSA%CC%81RIA/Untitled.png"><img style="width:794px" src="BUSCA%20ADVERSA%CC%81RIA/Untitled.png"/></a></figure></div></article></body></html>
+
+</style>
+</head>
+<body>
+<article id="c68783a6-dafb-4455-b49e-813027efbf56" class="page sans">
+	<header>
+		<div class="page-header-icon undefined">
+			<span class="icon">📚</span>
+	</div>
+	<h1 class="page-title">Anotações</h1>
+	</header>
+  
+  <div class="page-body">
+    <figure id="7426c2ed-af05-4b06-b736-46d7190f1bf7" class="link-to-page"><a href="ANOTACOES/CONCEITOS%20BASICOS.html">
+      <span class="icon">📚</span>CONCEITOS BÁSICOS
+    </a>
+</figure><figure id="666f559f-ad50-497e-aee6-bc10e710c94b" class="link-to-page"><a href="ANOTACOES/METODO%20DE%20BUSCA%20EM%20AMPLITUDE%20E%20PROFUNDIDADE.html"><span class="icon">📚
+
+</span>MÉTODO DE BUSCA EM AMPLITUDE E PROFUNDIDADE
+</a>
+</figure><figure id="0558aa46-8fb0-4b8c-a7f6-e5d1ba496e9e" class="link-to-page"><a href="ANOTACOES/METODO%20DE%20BUSCA%20CUSTO%20UNIFORME.html"><span class="icon">📚
+
+</span>MÉTODO DE BUSCA CUSTO UNIFORME
+</a>
+</figure><figure id="e8ad1ae2-eb50-46b4-9fee-4f6a2a997b0a" class="link-to-page"><a href="ANOTACOES/BUSCA%20HEURISTICA.html"><span class="icon">📚
+
+</span>BUSCA HEURÍSTICA
+</a>
+</figure><figure id="f06d9113-8311-43a6-a8a2-2a04b2fac56e" class="link-to-page"><a href="ANOTACOES/BUSCA%20ADVERSARIA.html"><span class="icon">📚
+
+</span>BUSCA ADVERSÁRIA
+</a>
+</figure>
+
+</div>
+</article>
+</body>
+</html>
