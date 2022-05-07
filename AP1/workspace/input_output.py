@@ -54,9 +54,28 @@ def get_user_inputs():
     ''')
 
     algorithm = algorithm_input()
-    initial_state = board_input()
+    initial_board = board_input()
 
-    print('\nTHE INITIAL STATE IS:')
-    print_board(initial_state)
+    print('\nTHE INITIAL STATE OF YOUR BOARD IS:')
+    print_board(initial_board)
 
-    return algorithm, initial_state
+    return algorithm, initial_board
+
+def print_result(number_of_nodes, visited, possibilities, final_node):
+
+    print(f'NODES: {number_of_nodes}')
+    print(f'VISITED: {visited}')
+    print(f'OPEN POSSIBILITIES: {possibilities} \n\n')
+
+    path = final_node.get('path')
+
+    for node in path:
+        print('NODE NUMBER: ', node.get('number'))
+        print('BOARD:')
+        print_board(node.get('board'))
+        print('\n\n')
+
+    print('NODE NUMBER: ', final_node.get('number'))
+    print('BOARD:')
+    print_board(final_node.get('board'))
+    print('\n\n')    

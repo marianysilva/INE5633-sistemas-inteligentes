@@ -1,7 +1,88 @@
-def amplitude_search():
-    pass
+from copy import deepcopy
+
+from workspace.moviments import MOVIMENTS, calcule_next_position
+from workspace.input_output import print_result
+
+SOLUTION = [1, 2, 3, 4, 5, 6, 7, 8, None]
+
+
+def create_node_board(current_node, none_position, choice):
+    current_board = deepcopy(current_node.get('board'))
+    board = deepcopy(current_board)
+
+    position = calcule_next_position(choice, none_position)
+    board.remove(None)
+    board.insert(position, None)
+
+    return board
+
+def create_node_path(current_node):
+    path = deepcopy(current_node.get('path'))
+
+    path.append(current_node)
+
+    return path
+
+def is_not_know_board(visited, possibilities, board):
+    for node in possibilities:
+        node_board = node.get('board')
+        if node_board == board:
+            return False
+
+    for node in visited:
+        node_board = node.get('board')
+        if node_board == board:
+            return False
+
+    return True
+
+def add_childrens(number_of_nodes, visited, possibilities, current_node):
+    none_position = current_node.get('board').index(None)
+    choices = MOVIMENTS[none_position]
+
+    for choice in choices:
+        board = create_node_board(current_node, none_position, choice)
+
+        if is_not_know_board(visited, possibilities, board):
+            number_of_nodes = number_of_nodes + 1
+            new_node = {
+                'number': number_of_nodes,
+                'board': board,
+                'path': create_node_path(current_node)
+            }
+
+            possibilities.append(new_node)
+    return number_of_nodes
+
+def amplitude_search(initial_board):
+    number_of_nodes = 0
+    current_node = {
+        'number': 0,
+        'board': initial_board,
+        'path': []
+    }
+    visited = []
+    possibilities = []
+
+    while current_node.get('board') != SOLUTION:
+
+        visited.append(current_node)
+
+        number_of_nodes = add_childrens(
+            number_of_nodes,
+            visited,
+            possibilities,
+            current_node
+        )
+
+        ''' FIFO (FIRST IN FIRST OUT) '''
+        current_node = possibilities.pop(0)
+
+    print_result(number_of_nodes, len(visited), len(possibilities), current_node)
+
 
 def depth_search():
+    ''' LIFO (LAST IN FIRST OUT) '''
     pass
 
 def calculate_cost():
@@ -14,7 +95,4 @@ def simple_heuristic_search():
     pass
 
 def complex_heuristic_search():
-    pass
-
-def print_result():
     pass
