@@ -1,14 +1,12 @@
 from copy import deepcopy
 
 from workspace.moviments import MOVIMENTS, calcule_next_position
-from workspace.input_output import print_result
 
 SOLUTION = [1, 2, 3, 4, 5, 6, 7, 8, None]
 
 
 def create_node_board(current_node, none_position, choice):
-    current_board = deepcopy(current_node.get('board'))
-    board = deepcopy(current_board)
+    board = deepcopy(current_node.get('board'))
 
     position = calcule_next_position(choice, none_position)
     board.remove(None)
@@ -16,12 +14,12 @@ def create_node_board(current_node, none_position, choice):
 
     return board
 
+
 def create_node_path(current_node):
     path = deepcopy(current_node.get('path'))
-
     path.append(current_node)
-
     return path
+
 
 def is_not_know_board(visited, possibilities, board):
     for node in possibilities:
@@ -35,6 +33,7 @@ def is_not_know_board(visited, possibilities, board):
             return False
 
     return True
+
 
 def add_childrens(number_of_nodes, visited, possibilities, current_node):
     none_position = current_node.get('board').index(None)
@@ -54,15 +53,31 @@ def add_childrens(number_of_nodes, visited, possibilities, current_node):
             possibilities.append(new_node)
     return number_of_nodes
 
-def amplitude_search(initial_board):
+
+def amplitude_search(possibilities):
+    ''' FIFO (FIRST IN FIRST OUT) '''
+    return possibilities.pop(0)
+
+
+def depth_search(possibilities):
+    ''' LIFO (LAST IN FIRST OUT) '''
+    return possibilities.pop()
+
+
+def calculate_cost():
+    pass
+
+
+def uniform_cost_search(search_function, initial_board):
     number_of_nodes = 0
+    visited = []
+    possibilities = []
+
     current_node = {
         'number': 0,
         'board': initial_board,
         'path': []
     }
-    visited = []
-    possibilities = []
 
     while current_node.get('board') != SOLUTION:
 
@@ -74,25 +89,25 @@ def amplitude_search(initial_board):
             possibilities,
             current_node
         )
+        
+        current_node = search_function(possibilities)
 
-        ''' FIFO (FIRST IN FIRST OUT) '''
-        current_node = possibilities.pop(0)
+    return number_of_nodes, visited, possibilities, current_node
 
-    print_result(number_of_nodes, len(visited), len(possibilities), current_node)
-
-
-def depth_search():
-    ''' LIFO (LAST IN FIRST OUT) '''
-    pass
-
-def calculate_cost():
-    pass
-
-def uniform_cost_search():
-    pass
 
 def simple_heuristic_search():
     pass
 
+
 def complex_heuristic_search():
     pass
+
+
+def search_solution(algorithm, initial_board):
+    if algorithm == 1:
+        return uniform_cost_search(amplitude_search, initial_board)
+    if algorithm == 2:
+        return uniform_cost_search(depth_search, initial_board)
+    if algorithm == 3:
+        return simple_heuristic_search()
+    return complex_heuristic_search()

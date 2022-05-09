@@ -6,19 +6,22 @@ def convert_choice(choice):
     except:
         return -1
 
+
 def print_board(board):
     print(' '.join(map(str, board[0:3])))
     print(' '.join(map(str, board[3:6])))
     print(' '.join(map(str, board[6:9])))
 
+
 def algorithm_input():
-    choices = [1, 2, 3]
+    choices = [1, 2, 3, 4]
     choice = 0
     while convert_choice(choice) not in choices:
         choice = input("ENTER THE NUMBER OF THE ALGORITHM: ")
         if convert_choice(choice) not in choices:
             print("[ERROR] CHOOSE ONE OF THE OPTIONS")
     return int(choice)
+
 
 def board_input():
     choices = [1, 2, 3, 4, 5, 6, 7, 8, None]
@@ -38,44 +41,31 @@ def board_input():
             choice = -1
     return board
 
-def get_user_inputs():
-    print('''
-    HELLO USER
-    
-    LET'S START OUR 8 PUZZLE GAME
 
-    FIRST CHOOSE THE ALGORITHM STRATEGY:
+def print_node_counts(number_of_nodes, visited, possibilities):
+    print(f'NODES: {number_of_nodes}')
+    print(f'VISITED: {len(visited)}')
+    print(f'OPEN POSSIBILITIES: {len(possibilities)} \n\n')
 
-        1 - Uniform Cost    2 - Simple Heuristic    3 - Complex Heuristic
 
-    THEN INPUT THE INITIAL STATE OF YOUR BOARD, OPTIONS:
+def print_node(node):
+    print('NODE NUMBER: ', node.get('number'))
+    print('BOARD:')
+    print_board(node.get('board'))
 
-        1 2 3 4 5 6 7 8 None
-    ''')
 
-    algorithm = algorithm_input()
-    initial_board = board_input()
+def print_nodes(nodes):
+    for node in nodes:
+        print_node(node)
+        print('\n\n')
 
-    print('\nTHE INITIAL STATE OF YOUR BOARD IS:')
-    print_board(initial_board)
-
-    return algorithm, initial_board
 
 def print_result(number_of_nodes, visited, possibilities, final_node):
 
-    print(f'NODES: {number_of_nodes}')
-    print(f'VISITED: {visited}')
-    print(f'OPEN POSSIBILITIES: {possibilities} \n\n')
+    print_node_counts(number_of_nodes, visited, possibilities)
 
-    path = final_node.get('path')
+    nodes = final_node.get('path')
+    print_nodes(nodes)
 
-    for node in path:
-        print('NODE NUMBER: ', node.get('number'))
-        print('BOARD:')
-        print_board(node.get('board'))
-        print('\n\n')
-
-    print('NODE NUMBER: ', final_node.get('number'))
-    print('BOARD:')
-    print_board(final_node.get('board'))
+    print_node(final_node)
     print('\n\n')    
