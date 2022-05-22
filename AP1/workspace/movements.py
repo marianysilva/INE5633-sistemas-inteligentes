@@ -1,5 +1,5 @@
 '''
-MOVIMENTS
+MOVEMENTS
 --------------------------------------------------------------------------------
 Below we have all the possibilities of movement on the board
 
@@ -41,7 +41,7 @@ def to_down(from_position):
 def to_right(from_position):
     return from_position + 1
 
-MOVIMENTS = {
+MOVEMENTS = {
     0: ["down", "right"],
     1: ["left", "down", "right"],
     2: ["left", "down"],

@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from workspace.moviments import MOVIMENTS, calcule_next_position
+from workspace.movements import MOVEMENTS, calcule_next_position
 from workspace.cost_map import COST_MAP
 
 """ List that contains the correct sequence for the board that is the Puzzle
@@ -75,11 +75,11 @@ def create_node_path(parent_node):
             List that contains the sequence for the board configuration
 
     Returns:
-        is_not_know_board (boolean):
+        is_not_known_board (boolean):
             Returns false whenever the node is found in any of the control
             lists and true when the node is not found.
 """
-def is_not_know_board(visited, possibilities, board):
+def is_not_known_board(visited, possibilities, board):
     for node in possibilities:
         node_board = node.get('board')
         if node_board == board:
@@ -114,13 +114,13 @@ def is_not_know_board(visited, possibilities, board):
         number_of_nodes (type):
             updated number of total generated nodes
 """
-def add_childrens(number_of_nodes, visited, possibilities, parent_node, cost_function = None):
+def add_children(number_of_nodes, visited, possibilities, parent_node, cost_function = None):
     none_position = parent_node.get('board').index(None)
-    choices = MOVIMENTS[none_position]
+    choices = MOVEMENTS[none_position]
 
     for choice in choices:
         board = create_node_board(parent_node, none_position, choice)
-        if is_not_know_board(visited, possibilities, board):
+        if is_not_known_board(visited, possibilities, board):
             number_of_nodes = number_of_nodes + 1
             new_node = {
                 'number': number_of_nodes,
@@ -141,7 +141,7 @@ def add_childrens(number_of_nodes, visited, possibilities, parent_node, cost_fun
 
     return number_of_nodes
 
-""" To perform a amplitude search, we always need to look at the first element
+""" To perform an amplitude search, we always need to look at the first element
     of the list of possibilities (ordered from lowest to highest cost when
     there is a cost associated with the path)
 
@@ -253,7 +253,7 @@ def search(search_function, initial_board, cost_function = None):
 
         visited.append(current_node)
 
-        number_of_nodes = add_childrens(
+        number_of_nodes = add_children(
             number_of_nodes,
             visited,
             possibilities,
