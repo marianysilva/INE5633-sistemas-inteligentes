@@ -24,7 +24,7 @@ SOLUTION = [1, 2, 3, 4, 5, 6, 7, 8, None]
     None item on the board and the move choice made by the algorithm
 
     Parameters:
-        current_node (Node):
+        parent_node (Node):
             Node that gave rise to the new node for which we are going to
             generate a new board
         none_position (number):
@@ -35,8 +35,8 @@ SOLUTION = [1, 2, 3, 4, 5, 6, 7, 8, None]
         board (list of number):
             List that contains the sequence for the board configuration
 """
-def create_node_board(current_node, none_position, choice):
-    board = deepcopy(current_node.get('board'))
+def create_node_board(parent_node, none_position, choice):
+    board = deepcopy(parent_node.get('board'))
 
     position = calcule_next_position(choice, none_position)
     board.remove(None)
@@ -47,7 +47,7 @@ def create_node_board(current_node, none_position, choice):
 """ Creates the path to a Node based on the path taken by the parent Node
 
     Parameters:
-        current_node (Node):
+        parent_node (Node):
             Node that gave rise to the new node for which we are going to
             generate a new board
 
@@ -55,9 +55,9 @@ def create_node_board(current_node, none_position, choice):
         path (list of Node):
             Path taken to reach the Node
 """
-def create_node_path(current_node):
-    path = deepcopy(current_node.get('path'))
-    path.append(current_node)
+def create_node_path(parent_node):
+    path = deepcopy(parent_node.get('path'))
+    path.append(parent_node)
     return path
 
 """ Checks if the newly created board exists in the list of possibilities or in
@@ -105,7 +105,7 @@ def is_not_know_board(visited, possibilities, board):
             List of nodes (dictionaries) List of nodes (dictionaries) that
             were generated as possible paths/solutions during the execution of
             the algorithm
-        current_node (Node):
+        parent_node (Node):
             Node that gave rise to the new nodes that we will generate
         cost_function (function) = None
             heuristic function used to know the cost of a move
@@ -114,18 +114,18 @@ def is_not_know_board(visited, possibilities, board):
         number_of_nodes (type):
             updated number of total generated nodes
 """
-def add_childrens(number_of_nodes, visited, possibilities, current_node, cost_function = None):
-    none_position = current_node.get('board').index(None)
+def add_childrens(number_of_nodes, visited, possibilities, parent_node, cost_function = None):
+    none_position = parent_node.get('board').index(None)
     choices = MOVIMENTS[none_position]
 
     for choice in choices:
-        board = create_node_board(current_node, none_position, choice)
+        board = create_node_board(parent_node, none_position, choice)
         if is_not_know_board(visited, possibilities, board):
             number_of_nodes = number_of_nodes + 1
             new_node = {
                 'number': number_of_nodes,
                 'board': board,
-                'path': create_node_path(current_node)
+                'path': create_node_path(parent_node)
             }            
 
             if cost_function != None:
