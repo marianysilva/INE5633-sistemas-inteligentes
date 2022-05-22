@@ -1,3 +1,8 @@
+"""
+    COST_MAP (dict):
+        dictionary that maps the cost for a board item to arrive at the correct
+        position from any position on the board
+"""
 COST_MAP = {
     # goal_index == 0
     0: {

@@ -1,3 +1,9 @@
+"""
+    input_output.py:
+        file with data entry functions to be used in the algorithm and also
+        functions used to show the results of the search for the best solution
+        for the user
+"""
 def convert_choice(choice):
     try:
         if choice.lower() == "none":
