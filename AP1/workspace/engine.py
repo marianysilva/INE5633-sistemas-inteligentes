@@ -1,6 +1,7 @@
 from copy import deepcopy
 
 from workspace.moviments import MOVIMENTS, calcule_next_position
+from workspace.input_output import print_error
 from workspace.cost_map import COST_MAP
 
 """ List that contains the correct sequence for the board that is the Puzzle
@@ -37,11 +38,9 @@ SOLUTION = [1, 2, 3, 4, 5, 6, 7, 8, None]
 """
 def create_node_board(parent_node, none_position, choice):
     board = deepcopy(parent_node.get('board'))
-
     position = calcule_next_position(choice, none_position)
-    board.remove(None)
-    board.insert(position, None)
-
+    '''makes an switch of positions between an number and None'''
+    board[none_position], board[position] = board[position], board[none_position]
     return board
 
 """ Creates the path to a Node based on the path taken by the parent Node
@@ -261,8 +260,11 @@ def search(search_function, initial_board, cost_function = None):
             cost_function
         )
         
-        current_node = search_function(possibilities)
-
+        try:
+            current_node = search_function(possibilities)
+        except:
+            print_error(number_of_nodes, visited, possibilities, current_node)
+            return number_of_nodes, visited, possibilities, current_node
     return number_of_nodes, visited, possibilities, current_node
 
 

@@ -56,6 +56,7 @@ def print_node_counts(number_of_nodes, visited, possibilities):
 
 def print_node(node):
     print('NODE NUMBER: ', node.get('number'))
+    print('HEURISTIC COST: ', node.get('cost'))
     print('BOARD:')
     print_board(node.get('board'))
 
@@ -65,7 +66,7 @@ def print_nodes(nodes):
     for node in nodes:
         cost = cost + node.get('cost', 0)
         print_node(node)
-        print('\n\n')
+        print('\n')
     return cost
 
 
@@ -77,7 +78,19 @@ def print_result(number_of_nodes, visited, possibilities, final_node):
     heuristic_cost = print_nodes(nodes)
 
     print_node(final_node)
-    print('\n\n')
+    print('\n')
 
     print('HEURISTIC COST: ', heuristic_cost)
     print('COST: ', len(nodes))
+
+def print_error(number_of_nodes, visited, possibilities, final_node):
+    print("[ERRO] O algoritmo chegou em um impasse!")
+
+    print("\n[VISITED NODES]:")
+    print_nodes(visited)
+    print("========================================")
+    print("\n[POSSIBILITIES NODES]:")
+    print_nodes(possibilities)
+    print("========================================")
+
+    print_result(number_of_nodes, visited, possibilities, final_node)
