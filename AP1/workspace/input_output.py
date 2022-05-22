@@ -66,7 +66,7 @@ def print_nodes(nodes):
         cost = cost + node.get('cost', 0)
         print_node(node)
         print('\n\n')
-    print('COST: ', cost)
+    return cost
 
 
 def print_result(number_of_nodes, visited, possibilities, final_node):
@@ -74,7 +74,10 @@ def print_result(number_of_nodes, visited, possibilities, final_node):
     print_node_counts(number_of_nodes, visited, possibilities)
 
     nodes = final_node.get('path')
-    print_nodes(nodes)
+    heuristic_cost = print_nodes(nodes)
 
     print_node(final_node)
-    print('\n\n')    
+    print('\n\n')
+
+    print('HEURISTIC COST: ', heuristic_cost)
+    print('COST: ', len(nodes))
