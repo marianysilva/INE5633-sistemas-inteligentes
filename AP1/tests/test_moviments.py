@@ -1,7 +1,7 @@
-from workspace.moviments import MOVIMENTS, calcule_next_position
+from workspace.MOVEMENTs import MOVEMENTS, calcule_next_position
 
 def get_positions(none_position):
-    choices = MOVIMENTS[none_position]
+    choices = MOVEMENTS[none_position]
     positions = []
     for choice in choices:
         positions.append(calcule_next_position(choice, none_position))

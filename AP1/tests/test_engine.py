@@ -1,9 +1,9 @@
-from workspace.moviments import MOVIMENTS
+from workspace.MOVEMENTs import MOVEMENTS
 from workspace.engine import create_node_board
 
 def get_board(parent_node):
     none_position = parent_node.get('board').index(None)
-    choices = MOVIMENTS[none_position]
+    choices = MOVEMENTS[none_position]
     boards = []
     for choice in choices:
         boards.append(create_node_board(parent_node, none_position, choice))
